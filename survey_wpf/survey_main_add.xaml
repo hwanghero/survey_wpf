@@ -1,0 +1,52 @@
+﻿<Page x:Class="survey_wpf.survey_main_add"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:survey_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="770" d:DesignWidth="824"
+      Title="survey_main_add">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" Width="750">
+            <Grid Height="60" VerticalAlignment="Top" Background="#FF673AB7" Margin="0,0,0,0">
+                <TextBlock Text="메인 설문조사 관리" FontFamily="Corbel Light" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White"/>
+            </Grid>
+
+                <StackPanel Width="750" Height="160" Background="White">
+                    <Grid Margin="10,15">
+                        <TextBlock Text="설문조사 번호" VerticalAlignment="Center"/>
+                        <TextBox x:Name="number"  Height="23" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" IsEnabled="False" Margin="100,0,0,0"/>
+                    </Grid>
+                    <Grid Margin="10,0">
+                        <TextBlock Text="설문조사 제목" VerticalAlignment="Center"/>
+                        <TextBox x:Name="title"  Height="23" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" IsEnabled="False" Margin="100,0,0,0"/>
+                    </Grid>
+                    <Grid Margin="10,10">
+                        <TextBlock Text="사용여부" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="view"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" IsEnabled="False" Margin="100,0,0,0">
+                            <ComboBoxItem Content="ON"/>
+                            <ComboBoxItem Content="OFF"/>
+                        </ComboBox>
+                    </Grid>
+                    <Grid Margin="10,0">
+                        <TextBlock Text="설문조사 설명" VerticalAlignment="Center"/>
+                        <TextBox x:Name="info"  Height="23" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" IsEnabled="False" Margin="100,0,0,0"/>
+                    </Grid>
+                </StackPanel>
+
+            <Grid HorizontalAlignment="Center" Height="60" Background="White" Width="750" Margin="0,0">
+                <Button x:Name="insert" Content="입력" Width="75" Click="Button_Click" Height="30" Margin="0,0,400,0"/>
+                <Button x:Name="update" Content="수정" Width="75"  Click="Button_Click"  Height="30" Margin="0,0,200,0"/>
+                <Button x:Name="delete" Content="삭제" Width="75"  Click="Button_Click" Height="30" Margin="0,0,0,0"/>
+                <Button x:Name="success" Content="확인" Width="75"  Click="Button_Click"  Height="30" IsEnabled="False" Margin="0,0,-200,0"/>
+                <Button x:Name="cancel" Content="취소" Width="75"  Click="Button_Click" Height="30"  IsEnabled="False" Margin="0,0,-400,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Width="750">
+                <TextBlock TextWrapping="Wrap" Text="현재 설문조사 목록" FontSize="20"/>
+                <DataGrid x:Name="dataGrid1" Height="300" MouseDoubleClick="DataGrid1_MouseDoubleClick" IsReadOnly="true"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,27 @@
+﻿<Page x:Class="survey_wpf.survey_result_select"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:survey_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="770" d:DesignWidth="824"
+      Title="survey_result_select">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Background="#FF673AB7">
+            <TextBlock Text="메인 설문조사 선택" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontFamily="Corbel Light" Foreground="White"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <DataGrid x:Name="mainlist" IsReadOnly="true" MouseDoubleClick="Main_list_MouseDoubleClick">
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Page>

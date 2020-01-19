@@ -1,0 +1,19 @@
+﻿<Page x:Class="survey_wpf.survey_list"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:survey_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="770" d:DesignWidth="824"
+      Title="survey_list">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" Width="750">
+            <Grid Grid.Column="1"  Height="60" Background="#FF673AB7">
+                <TextBlock Text="메인 설문조사 목록" FontSize="30" HorizontalAlignment="Center" Margin="0,10" FontFamily="Corbel Light" Foreground="White"/>
+            </Grid>
+            <DataGrid x:Name="dataGrid1" Height="600" IsReadOnly="True"></DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

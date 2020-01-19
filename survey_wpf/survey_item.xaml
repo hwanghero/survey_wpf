@@ -1,0 +1,109 @@
+﻿<Page x:Class="survey_wpf.survey_item"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:survey_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="770" d:DesignWidth="824"
+      Title="survey_item">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <Grid>
+                <GroupBox Header="서브 설문조사 목록" Width="750" Height="300" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10">
+                            <Button Width="170" Height="30" Content="메인 설문조사 찾기" Click="Button_Click_1"></Button>
+                            
+                            <ComboBox x:Name="searchmode" Width="60" Margin="-200,0,0,0" SelectedIndex="0" SelectionChanged="Searchmode_SelectionChanged" Visibility="Hidden">
+                                <ComboBoxItem Content="전체"/>
+                                <ComboBoxItem Content="번호"/>
+                                <ComboBoxItem Content="제목"/>
+                                <ComboBoxItem Content="설명"/>
+                                <ComboBoxItem Content="VIEW"/>
+                            </ComboBox>
+                            <TextBox x:Name="searchbox" Height="23" Text="" Width="120" IsEnabled="False" Visibility="Hidden"/>
+                            <Button Content="검색" Width="60" Height="25" Margin="0,0,-210,0" Click="Button_Click" Visibility="Hidden"/>
+                        </Grid>
+                        <Grid>
+                            <DataGrid x:Name="surveylist" Height="200" IsReadOnly="true" MouseDoubleClick="Surveylist_MouseDoubleClick"></DataGrid>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+
+            <Grid Margin="0,0,0,0">
+                <GroupBox x:Name="itembox" Header="항목 생성/관리" Width="750" Height="450" IsEnabled="False">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="110"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel>
+                                <Grid Margin="0,5">
+                                    <Label Content="번호"></Label>
+                                    <TextBox x:Name="number" HorizontalAlignment="Left" Text="" Margin="65,0,0,0" Width="50" IsEnabled="False"></TextBox>
+                                    <Label x:Name="Nickname_label" Content="별명" Margin="285,0,0,0"></Label>
+                                    <TextBox x:Name="Nickname" Width="60" Margin="300,0,0,0" IsEnabled="False"></TextBox>
+                                </Grid>
+                                <Grid Margin="0,5">
+                                    <Label Content="선택유형"></Label>
+                                    <ComboBox IsEnabled="False" x:Name="type" Width="80" HorizontalAlignment="Left" Margin="65,0,0,0" SelectionChanged="ComboBox_SelectionChanged">
+                                        <ComboBoxItem Content="Radio"/>
+                                        <ComboBoxItem Content="Check"/>
+                                        <ComboBoxItem Content="Text"/>
+                                    </ComboBox>
+                                    <Grid x:Name="textbox_height" VerticalAlignment="Center" Visibility="Hidden">
+                                        <Label Content="박스 넓기" Margin="260,0,0,0"></Label>
+                                        <TextBox x:Name="mheight" Text="" Width="60" Margin="300,0,0,0" PreviewTextInput="mheight_PreviewTextInput"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Margin="0,5">
+                                    <Label Content="질문내용"></Label>
+                                    <TextBox IsEnabled="False" x:Name="Content" Text="" Margin="-70,0,0,0" Width="200"></TextBox>
+                                    <Label Content="뷰" Margin="295,0,0,0"></Label>
+                                    <ComboBox x:Name="viewbox" IsEnabled="False" Margin="300,0,0,0" Width="60">
+                                        <ComboBoxItem Content="ON"/>
+                                        <ComboBoxItem Content="OFF"/>
+                                    </ComboBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <Grid Margin="0,0" HorizontalAlignment="Right">
+                                    <GroupBox Header="선택한 설문조사 정보" Height="105" Width="300">
+                                        <StackPanel>
+                                            <TextBlock x:Name="survey_number" Text="없음"/>
+                                            <TextBlock x:Name="survey_title" Text=""/>
+                                            <TextBlock x:Name="survey_info" Text=""/>
+                                        </StackPanel>
+                                    </GroupBox>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Margin="0,10,0,10">
+                            <Grid Visibility="Hidden">
+                                <Label Content="현재상태"></Label>
+                                <TextBox x:Name="modestatus" Height="23" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" IsEnabled="False" Margin="65,0,0,0"/>
+                            </Grid>
+                            <Button x:Name="insertB" Content="입력" Width="60" Height="25" Margin="0,0,300,0" Click="Button_Click"></Button>
+                            <Button x:Name="updateB" Content="수정" Width="60" Height="25" Margin="0,0,150,0" Click="Button_Click"></Button>
+                            <Button x:Name="deleteB" Content="삭제" Width="60" Height="25" Margin="0,0,0,0" Click="Button_Click"></Button>
+                            <Button x:Name="successB" Content="확인" Width="60" Height="25" Margin="0,0,-150,0" IsEnabled="False" Click="Button_Click"></Button>
+                            <Button x:Name="cancelB" Content="취소" Width="60" Height="25" Margin="0,0,-300,0" IsEnabled="False" Click="Button_Click"></Button>
+                        </Grid>
+                        <Grid>
+                            <DataGrid x:Name="itemlist" Height="250" IsReadOnly="true" MouseDoubleClick="itemlist_MouseDoubleClick"></DataGrid>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
